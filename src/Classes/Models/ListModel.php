@@ -23,4 +23,10 @@ class ListModel {
         $query->execute();
     }
 
+    public function completedTask ($completedTask) {
+        $query = $this->db->prepare("UPDATE `task_table` SET `completed` = '1' WHERE `id` = ;completedTask");
+        $query->bindParam(':completedTask', $completedTask);
+        $query->execute();
+    }
+
 }
