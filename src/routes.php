@@ -20,5 +20,6 @@ use Slim\Http\Response;
 return function (App $app) {
 //    $container = $app->getContainer();
     $app->get('/', 'HomepageController');
+    $app->get('/addTask', 'AddTaskController');
 
 };
