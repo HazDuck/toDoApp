@@ -12,7 +12,15 @@ return function (App $app) {
     };
 
     $container['HomepageController'] = new \Portal\Factories\HomepageControllerFactory();
+
     $container['ListModel'] = new \Portal\Factories\ListModelFactory();
+
+    $container['dbConnection'] = function ($c) {
+        $settings = $c->get('settings')['db'];
+        $db = new PDO($settings['host'].$settings['dbName'], $settings['userName']);
+        $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
+        return $db;
+    };
 
     // monolog
     $container['logger'] = function ($c) {
