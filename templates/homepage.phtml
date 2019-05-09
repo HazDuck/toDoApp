@@ -4,7 +4,10 @@
             <?php
             echo "<br>";
             foreach ($tasks as $task) {
-            echo $task['task'] . "<br>";
+            echo $task['task'] . '<form action="completedTask" method="POST">
+            <input type="submit" name="completedButton" value="Completed">
+            <input type="hidden" name="taskId\" value= ' . $task['id'] . '>
+            </form><br>';
             };
             ?></p>
     </body>

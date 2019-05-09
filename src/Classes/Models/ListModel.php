@@ -12,7 +12,7 @@ class ListModel {
     }
 
     public function getTasks () {
-        $query = $this->db->prepare("SELECT `task` FROM `task_table`");
+        $query = $this->db->prepare("SELECT `task`, `id` FROM `task_table`");
         $query->execute();
         return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
