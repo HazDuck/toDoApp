@@ -1,5 +1,11 @@
 <html>
     <body>
-        <p>Yo yo yo you are an elephant and your name is: <?php echo $tasks["name"]; ?></p>
+        <p>Jobs for today:
+            <?php
+            echo "<br>";
+            foreach ($tasks as $task) {
+            echo $task['task'] . "<br>";
+            };
+            ?></p>
     </body>
 </html>

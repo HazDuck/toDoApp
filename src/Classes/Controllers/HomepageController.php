@@ -17,7 +17,7 @@ class HomepageController {
     }
 
     public function __invoke($request, $response, $args) {
-        $args['tasks'] = $this->listModel->getElephant();
+        $args['tasks'] = $this->listModel->getTasks();
         $this->renderer->render($response, 'homepage.phtml', $args);
     }
 
