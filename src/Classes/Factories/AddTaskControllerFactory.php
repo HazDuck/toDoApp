@@ -2,15 +2,15 @@
 
 namespace Portal\Factories;
 
+use Portal\Controllers\AddTaskController;
 use Psr\Container\ContainerInterface;
 
 class AddTaskControllerFactory{
 
     public function __invoke(ContainerInterface $container)
     {
-        $renderer = $container->get('renderer');
         $data = $container->get('ListModel');
-        return new AddTaskController($renderer, $data);
+        return new AddTaskController($data);
     }
 
 }

@@ -14,6 +14,9 @@ class AddTaskController {
 
     public function __invoke($request, $response, $args)
     {
-        $this->listModel->addTask();
+        $newtask = $request->getParsedBody();
+        $taskInfo = $newtask['task'];
+        $this->listModel->addTask($taskInfo);
+        return $response->withRedirect('/');
     }
 }
