@@ -9,4 +9,5 @@ return function (App $app) {
 //    $container = $app->getContainer();
     $app->get('/', 'HomepageController');
     $app->post('/addTask', 'AddTaskController');
+    $app->post('/completedTask', 'CompletedTaskController');
 };
