@@ -10,8 +10,8 @@ class HomepageControllerFactory {
     public function __invoke(ContainerInterface $container)
     {
         $renderer = $container->get('renderer');
-//        $data = $container->get('ListModel');
-        return new HomepageController($renderer);
+        $data = $container->get('ListModel');
+        return new HomepageController($renderer, $data);
     }
 
 }

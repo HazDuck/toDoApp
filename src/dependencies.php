@@ -12,6 +12,7 @@ return function (App $app) {
     };
 
     $container['HomepageController'] = new \Portal\Factories\HomepageControllerFactory();
+    $container['ListModel'] = new \Portal\Factories\ListModelFactory();
 
     // monolog
     $container['logger'] = function ($c) {
