@@ -17,8 +17,8 @@ class CompletedTaskController
 
     public function __invoke($request, $response, $args)
     {
-        $newtask = $request->getParsedBody();
-        $completedTaskId = $newtask['taskId'];
+        $completedTask = $request->getParsedBody();
+        $completedTaskId = $completedTask['taskId'];
         $this->listModel->completedTask($completedTaskId);
         return $response->withRedirect('/');
     }
