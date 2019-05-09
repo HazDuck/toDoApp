@@ -11,15 +11,16 @@ class ListModel {
         $this->db = $db;
     }
 
-//    public function getElephant () {
-//        $elephant = ["name"=>"bob the elephant"];
-//        return $elephant;
-//    }
-
     public function getTasks () {
         $query = $this->db->prepare("SELECT `task` FROM `task_table`");
         $query->execute();
         return $query->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function addTask ($newTask) {
+        $query = $this->db->prepare("INSERT INTO `task_table` (`task`) VALUES (:newTask)");
+        $query->bindParam(':newTask', $newTask);
+        $query->execute();
     }
 
 }
