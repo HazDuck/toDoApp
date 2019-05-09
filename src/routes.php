@@ -20,8 +20,6 @@ use Slim\Http\Response;
 return function (App $app) {
 //    $container = $app->getContainer();
 
-    $app->get('/', //TODO ADD CONTROLLER HERE) {
-
-    });
+    $app->get('/', 'HomepageController');
 
 };

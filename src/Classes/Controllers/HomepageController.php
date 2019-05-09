@@ -15,7 +15,7 @@ class HomepageController {
 //        $this->$listModel = $listModel;
     }
 
-    public function __invoke($response, $request, $args) {
+    public function __invoke($request, $response, $args) {
         $this->renderer->render($response, 'homepage.phtml', $args);
     }
 
