@@ -38,4 +38,10 @@ LEFT JOIN `to_do_lists_table`
         $query->execute();
         return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function addToDoList ($newToDoList) {
+        $query = $this->db->prepare("INSERT INTO `to_do_lists_table` (`to_do_list`) VALUES (:newToDoList);");
+        $query->bindParam(':newToDoList', $newToDoList);
+        return $query->execute();
+    }
 }
