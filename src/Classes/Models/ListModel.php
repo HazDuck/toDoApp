@@ -20,10 +20,11 @@ LEFT JOIN `to_do_lists_table`
         return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function addTask ($newTask) {
-        $query = $this->db->prepare("INSERT INTO `task_table` (`task`) VALUES (:newTask)");
+    public function addTask ($newTask, $listId) {
+        $query = $this->db->prepare("INSERT INTO `task_table` (`task`, `to_do_list_id`) VALUES (:newTask, :listId);");
         $query->bindParam(':newTask', $newTask);
-        $query->execute();
+        $query->bindParam(':listId', $listId);
+        return $query->execute();
     }
 
     public function completedTask ($completedTask) {
