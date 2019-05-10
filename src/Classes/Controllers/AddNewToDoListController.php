@@ -1,9 +1,10 @@
 <?php
+
 namespace Portal\Controllers;
 
 use Portal\Models\ListModel;
 
-class AddTaskController {
+class AddNewToDoListController {
 
     public $listModel;
 
@@ -14,11 +15,9 @@ class AddTaskController {
 
     public function __invoke($request, $response, $args)
     {
-        $newtask = $request->getParsedBody();
-        $taskInfo = $newtask['task'];
-        $taskTableId = $request->getParsedBody();
-        $taskListId = $taskTableId['listId'];
-        $this->listModel->addTask($taskInfo, $taskListId);
+        $newToDoList = $request->getParsedBody();
+        $addToDoList = $newToDoList['toDolist'];
+        $this->listModel->addToDoList($addToDoList);
         return $response->withRedirect('/');
     }
 }

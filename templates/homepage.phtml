@@ -17,6 +17,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Task</th>
                             <th scope="col">Completed</th>
+                            <th scope="col">To Do List Type</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,15 +28,27 @@
                                 '<td><form action="/completedTask" method="POST">
                         <input class="btn btn-success" type="submit" name="completedButton" value="Completed">
                         <input type="hidden" name="taskId" value= ' . $task['id'] . '>
-                        </form></td></tr>';
+                        </form></td><td>' . $task['to_do_list'] . '</td></tr>';
                         }
                         ?>
                         </tr>
                     </tbody>
                 </table>
-                <p class="font-weight-bold">Add Task</p>
+                <p>Add Task</p>
                 <form action="/addTask" method="POST" class="form-inline">
+                    <select name="listId">
+                    <?php
+                    foreach ($lists as $list) {
+                        echo '<option  value= ' . $list['id'] . '>' . $list['to_do_list'] . '</option>';
+                    };
+                    ?>
+                    </select>
                     <input class="form-control mr-sm-2" type="text" name="task">
+                    <input class="btn btn-success" type="submit" value="Submit">
+                </form>
+                <p>Add To Do List</p>
+                <form action="/addToDoList" method="POST" class="form-inline">
+                    <input class="form-control mr-sm-4" type="text" name="toDolist">
                     <input class="btn btn-success" type="submit" value="Submit">
                 </form>
             </div>
