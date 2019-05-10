@@ -12,7 +12,10 @@ class ListModel {
     }
 
     public function getTasks () {
-        $query = $this->db->prepare("SELECT `task`, `id` FROM `task_table` WHERE `completed` = 0");
+        $query = $this->db->prepare("SELECT `task_table`.`id`,`task_table`.`task`, `to_do_lists_table`.`to_do_list` FROM `task_table` 
+LEFT JOIN `to_do_lists_table` 
+    ON `task_table`.`to_do_list_id` = `to_do_lists_table`.`id` 
+    WHERE `completed` = 0;");
         $query->execute();
         return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
