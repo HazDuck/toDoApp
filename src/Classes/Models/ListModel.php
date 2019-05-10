@@ -33,8 +33,8 @@ LEFT JOIN `to_do_lists_table`
     }
 
     public function  getToDoLists () {
-
+        $query = $this->db->prepare("SELECT `id`, `to_do_list` FROM `to_do_lists_table`");
+        $query->execute();
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
-
-
 }

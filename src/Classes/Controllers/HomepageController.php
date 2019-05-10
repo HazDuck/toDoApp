@@ -18,6 +18,7 @@ class HomepageController {
 
     public function __invoke($request, $response, $args) {
         $args['tasks'] = $this->listModel->getTasks();
+        $args['lists'] = $this->listModel->getToDoLists();
         $this->renderer->render($response, 'homepage.phtml', $args);
     }
 
