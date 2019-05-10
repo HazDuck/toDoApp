@@ -21,7 +21,12 @@
                     </thead>
                     <tbody>
                         <?php
+                        $listsWithTasks = [];
+                        foreach($tasks as $task) {
+                            array_push($listsWithTasks, $task["to_do_list_id"]);
+                        }
                         foreach ($lists as $list) {
+                            if (in_array($list['id'], $listsWithTasks)){
                             echo '<tr class="bg-primary"><td colspan="3">' . $list['to_do_list'] . '</td></tr>';
                             foreach($tasks as $task) {
                                 if($list['id'] == $task['to_do_list_id']) {
@@ -32,6 +37,7 @@
                         </form></td></tr>';
                                 }
                             }
+                          };
                         }
                         ?>
                         </tr>
