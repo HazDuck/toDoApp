@@ -19,6 +19,9 @@ return function (App $app) {
 
     $container['CompletedTaskController'] = new \Portal\Factories\CompletedTaskControllerFactory();
 
+    $container['AddNewToDoListController'] = new \Portal\Factories\AddNewToDoListControllerFactory();
+
+
     $container['dbConnection'] = function ($c) {
         $settings = $c->get('settings')['db'];
         $db = new PDO($settings['host'].$settings['dbName'], $settings['userName']);
