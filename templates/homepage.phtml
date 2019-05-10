@@ -34,16 +34,15 @@
                         </tr>
                     </tbody>
                 </table>
-                <p class="font-weight-bold">Add Task</p>
+                <p>Add Task</p>
                 <form action="/addTask" method="POST" class="form-inline">
-                    <select>
+                    <select name="listId">
                     <?php
                     foreach ($lists as $list) {
-                        echo '<option name="listId" value= ' . $list['id'] . '>' . $list['to_do_list'] . '</option>';
+                        echo '<option  value= ' . $list['id'] . '>' . $list['to_do_list'] . '</option>';
                     };
                     ?>
                     </select>
-                    <input type="hidden" name="taskListId" value= ' <?php $lists['id'] ?> '>
                     <input class="form-control mr-sm-2" type="text" name="task">
                     <input class="btn btn-success" type="submit" value="Submit">
                 </form>

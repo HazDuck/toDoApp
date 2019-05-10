@@ -19,7 +19,6 @@ class AddTaskController {
         $taskTableId = $request->getParsedBody();
         $taskListId = $taskTableId['listId'];
         $this->listModel->addTask($taskInfo, $taskListId);
-        var_dump($_POST);
-//        return $response->withRedirect('/');
+        return $response->withRedirect('/');
     }
 }
