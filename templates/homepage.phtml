@@ -1,19 +1,45 @@
 <html>
-    <body>
-        <p>Jobs for today:
-            <?php
-            echo "<br>";
-            foreach ($tasks as $task) {
-            echo $task['task'] . '<form action="/completedTask" method="POST">
-            <input type="submit" name="completedButton" value="Completed">
-            <input type="hidden" name="taskId" value= ' . $task['id'] . '>
-            </form><br>';
-            };
-            ?></p>
-    </body>
-
-    <form action="/addTask" method="POST">
-        <input type="text" name="task">
-        <input type="submit">
-    </form>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+                <nav class="navbar navbar-dark bg-primary">
+                    <span class="navbar-brand mb-0 h1">PHP SLIM - To Do List</span>
+                </nav>
+        </div>
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-10">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Task</th>
+                            <th scope="col">Completed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <?php
+                        foreach ($tasks as $task) {
+                            echo '<tr><th scope="row">' . $task['id'] . '</th><td>' . $task['task'] . '</td>' .
+                                '<td><form action="/completedTask" method="POST">
+                        <input class="btn btn-success" type="submit" name="completedButton" value="Completed">
+                        <input type="hidden" name="taskId" value= ' . $task['id'] . '>
+                        </form></td></tr>';
+                        }
+                        ?>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="font-weight-bold">Add Task</p>
+                <form action="/addTask" method="POST" class="form-inline">
+                    <input class="form-control mr-sm-2" type="text" name="task">
+                    <input class="btn btn-success" type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
